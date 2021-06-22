@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 100%;
+}
+
+/* Reset button */
+button {
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.toggle-button {
+  position: absolute;
+  left: 0;
+  padding: 0.5rem;
+}
+
+.site-header {
+  display: flex;
+  justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  background-color: white;
+}
+
+.navbar {
+  width: 0px;
+}
+.navbar.active {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  height: 100%;
+  background-color: salmon;
+  overflow: scroll;
+}
+
+.navbar__menu {
+  display: none;
+  flex-direction: column;
+  list-style-type: none;
+}
+.navbar__menu.active {
+  display: flex;
+}
+
+.navbar__link, .navbar__logo {
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.navbar__logo {
+  text-align: center;
+}
+
+.navbar__link {
+  display: block;
+}
+
+@media screen and (min-width: 600px) {
+  .toggle-button {
+    display: none;
+  }
+
+  .navbar {
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background-color: salmon;
+    overflow: scroll;
+  }
+
+  .navbar__menu {
+    display: flex;
+  }
+
+  .navbar__link, .navbar__logo {
+    padding: 1rem;
+  }
+
+  .content {
+    margin-left: 200px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

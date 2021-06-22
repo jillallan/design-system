@@ -1,0 +1,67 @@
+@use 'reset'
+
+$navigation-style: side
+
+@mixin navbar-style($navigation-style: $navigation-style)
+    @if $navigation-style == top
+        flex-direction: row
+    @if $navigation-style == side
+        flex-direction: column
+
+.toggle-button
+    position: absolute
+    left: 0
+    padding: 0.5rem
+
+.navbar
+    // position
+    display: flex
+    flex-direction: column
+    position: -webkit-sticky
+    position: sticky
+    top: 0px
+
+.navbar__menu
+    // position
+    display: none
+    flex-direction: column
+
+    //style
+    list-style-type: none
+
+.navbar__menu.active
+    // position
+    display: flex
+
+.navbar__link, .navbar__logo
+    // position
+    padding: 0.5rem
+
+    // style
+    text-decoration: none
+
+.navbar__logo
+    // position
+    text-align: center
+
+.navbar__link 
+    // position
+    display: block
+
+@media screen and (min-width: 600px) 
+    .toggle-button 
+        // position
+        display: none
+
+    .navbar 
+        // position
+        flex-direction: row
+
+    .navbar__menu 
+        // position
+        display: flex
+        flex-direction: row
+
+    .navbar__link, .navbar__logo 
+        // position
+        padding: 1rem

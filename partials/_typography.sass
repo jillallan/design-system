@@ -1,0 +1,44 @@
+@use 'sass:math'
+    
+$font-primary: Helvetica, sans-serif  // For style
+$font-secondary: Garamond, serif  // For function
+$base-font-size: 16px
+$font-scale: 1.618
+
+@mixin text--sm
+    font-family: $font-primary
+    $font-size: calculate-text-size(0.5)
+    font-size: $font-size
+    line-height: calculate-line-height($font-size)
+
+@mixin text--md
+    font-family: $font-primary
+    font-size: 16px
+    line-height: 24px
+
+@mixin text--lg
+    font-family: $font-primary
+    $font-size: calculate-text-size(1)
+    font-size: $font-size
+    line-height: calculate-line-height($font-size)
+
+@mixin text--xlg
+    font-family: $font-primary
+    $font-size: calculate-text-size(2)
+    font-size: $font-size
+    line-height: calculate-line-height($font-size)
+
+@mixin text--xxlg
+    font-family: $font-primary
+    $font-size: calculate-text-size(3)
+    font-size: $font-size
+    line-height: calculate-line-height($font-size)
+
+
+/* functions */
+
+@function calculate-text-size($multiplier, $base-font-size: $base-font-size, $font-scale: $font-scale)
+    @return math.round($base-font-size * $font-scale * $multiplier)
+
+@function calculate-line-height($font-size)
+    @return math.ceil(math.div($font-size, 8)) * 8

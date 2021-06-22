@@ -1,0 +1,105 @@
+@use 'reset'
+@use 'spacing'
+
+$navigation-style: side
+
+@mixin navbar-style($navigation-style: $navigation-style)
+    @if $navigation-style == top
+        flex-direction: row
+    @if $navigation-style == side
+        flex-direction: column
+
+.toggle-button
+    position: absolute
+    left: 0
+    padding: $spacing-xs
+
+.site-header
+    // position
+    display: flex
+    justify-content: center
+    position: -webkit-sticky
+    position: sticky
+    top: 0px
+
+    // style
+    background-color: white
+
+.navbar
+    // size
+    width: 0px
+
+    &.active
+        // position
+        position: fixed
+        display: flex
+        flex-direction: column
+
+        // size
+        width: 160px
+        height: 100%
+
+        // style
+        background-color: salmon
+
+        // behaviour
+        overflow: scroll
+
+
+.navbar__menu
+    // position
+    display: none
+    flex-direction: column
+
+    //style
+    list-style-type: none
+
+    &.active
+        // position
+        display: flex
+
+.navbar__link, .navbar__logo
+    // position
+    padding: $spacing-xs
+
+    // style
+    text-decoration: none
+
+.navbar__logo
+    // position
+    text-align: center
+
+.navbar__link 
+    // position
+    display: block
+
+@media screen and (min-width: 600px) 
+    .toggle-button 
+        // position
+        display: none
+
+    .navbar 
+        // position
+        position: fixed
+
+        // size
+        width: 160px
+        height: 100%
+
+        // style
+        background-color: salmon
+
+        // behaviour
+        overflow: scroll
+
+    .navbar__menu 
+        // position
+        display: flex
+
+    .navbar__link, .navbar__logo 
+        // position
+        padding: $spacing-md
+
+    .content
+        // position
+        margin-left: 160px
