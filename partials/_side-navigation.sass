@@ -1,18 +1,11 @@
 @use 'reset'
 @use 'spacing'
-
-$navigation-style: side
-
-@mixin navbar-style($navigation-style: $navigation-style)
-    @if $navigation-style == top
-        flex-direction: row
-    @if $navigation-style == side
-        flex-direction: column
+@use 'colours'
 
 .toggle-button
     position: absolute
     left: 0
-    padding: $spacing-xs
+    padding: 8px
 
 .site-header
     // position
@@ -60,7 +53,7 @@ $navigation-style: side
 
 .navbar__link, .navbar__logo
     // position
-    padding: $spacing-xs
+    padding: 8px
 
     // style
     text-decoration: none
@@ -98,8 +91,13 @@ $navigation-style: side
 
     .navbar__link, .navbar__logo 
         // position
-        padding: $spacing-md
+        padding: spacing.$space-squish-inset-m
 
     .content
         // position
         margin-left: 160px
+        padding: spacing.$space-inset-default
+
+    h2
+        // position
+        margin: spacing.$space-stack-default

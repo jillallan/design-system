@@ -3,7 +3,7 @@
 $font-primary: Helvetica, sans-serif  // For style
 $font-secondary: Garamond, serif  // For function
 $base-font-size: 16px
-$font-scale: 1.618
+$font-scale: 1.3
 
 @mixin text--sm
     font-family: $font-primary
@@ -24,12 +24,14 @@ $font-scale: 1.618
 
 @mixin text--xlg
     font-family: $font-primary
+    font-weight: 200
     $font-size: calculate-text-size(2)
     font-size: $font-size
     line-height: calculate-line-height($font-size)
 
 @mixin text--xxlg
     font-family: $font-primary
+    font-weight: 200
     $font-size: calculate-text-size(3)
     font-size: $font-size
     line-height: calculate-line-height($font-size)
