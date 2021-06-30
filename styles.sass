@@ -1,11 +1,20 @@
 @use 'partials/side-navigation'
 @use 'partials/typography'
+@use 'partials/spacing'
+@use 'partials/data_table'
+@use 'partials/grid'
+@use 'partials/cards'
+@use 'partials/_fixed-aspect-ratio-box'
+@use 'partials/_colours'
+@use 'partials/_shape'
 
-h1
-    @include typography.text--xxlg
-    margin: 0 0 1rem 0
-    
+.content
+    // position
+    padding: spacing.$space-inset-default
 
-h2
-    @include typography.text--xlg
-    margin: 0 0 1rem 0
+
+
+@media screen and (min-width: 600px) 
+    .content
+        // position
+        margin-left: 160px

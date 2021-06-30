@@ -1,46 +1,55 @@
 @use 'sass:math'
-    
+@use 'typography-maps'
+
 $font-primary: Helvetica, sans-serif  // For style
 $font-secondary: Garamond, serif  // For function
-$base-font-size: 16px
-$font-scale: 1.3
 
-@mixin text--sm
-    font-family: $font-primary
-    $font-size: calculate-text-size(0.5)
-    font-size: $font-size
-    line-height: calculate-line-height($font-size)
+$ratio: 1.618
 
-@mixin text--md
-    font-family: $font-primary
-    font-size: 16px
-    line-height: 24px
+$base-font-size: 100 // 16px
+$line-height: 1.5 // 150%
 
-@mixin text--lg
-    font-family: $font-primary
-    $font-size: calculate-text-size(1)
-    font-size: $font-size
-    line-height: calculate-line-height($font-size)
-
-@mixin text--xlg
-    font-family: $font-primary
-    font-weight: 200
-    $font-size: calculate-text-size(2)
-    font-size: $font-size
-    line-height: calculate-line-height($font-size)
-
-@mixin text--xxlg
-    font-family: $font-primary
-    font-weight: 200
-    $font-size: calculate-text-size(3)
-    font-size: $font-size
-    line-height: calculate-line-height($font-size)
+$base: 16 * math.div($base-font-size, 100) // 16px
+$leading: $base * $line-height // 24px
 
 
-/* functions */
+@function ms-rem($value, $ms-ratio: $ratio, $ms-base: $base-font-size)
+    $size: math.round(math.pow($ms-ratio, $value) * math.div($ms-base, 100))
+    @return #{ $size + 'rem'}
 
-@function calculate-text-size($multiplier, $base-font-size: $base-font-size, $font-scale: $font-scale)
-    @return math.round($base-font-size * $font-scale * $multiplier)
+@function ms-px($value, $ms-ratio: $ratio, $ms-base: $base)
+    $size: math.round(math.pow($ms-ratio, $value) * $ms-base)
+    @return #{ $size + 'px'}
 
-@function calculate-line-height($font-size)
-    @return math.ceil(math.div($font-size, 8)) * 8
+@mixin line-height($number)
+    line-height: #{ $number * $leading + 'px'}
+    line-height: #{ $number * $line-height + 'rem'}
+
+@mixin margin-top($number)
+    margin-top: #{ $number * $leading + 'px'}
+    margin-top: #{ $number * $line-height + 'rem'}
+
+@mixin margin-bottom($number)
+    margin-bottom: #{ $number * $leading + 'px'}
+    margin-bottom: #{ $number * $line-height + 'rem'}
+
+*
+    // typography
+    color: black
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+    font-size: 100%
+    //@include line-height(1)
+    //@include margin-top(0)
+    //@include margin-bottom(1)
+    
+
+@each $heading, $properties in typography-maps.$headings
+    #{$heading} 
+        @include line-height(nth($properties, 1))
+        @include margin-top(nth($properties, 2))
+        @include margin-bottom(nth($properties, 3))
+
+        font-size: ms-rem(nth($properties, 4))
+        font-size: ms-px(nth($properties, 4))
+        font-weight: nth($properties, 5)
+        text-transform: nth($properties, 6)

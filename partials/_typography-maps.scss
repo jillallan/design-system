@@ -1,0 +1,10 @@
+// heading properties: Line height, margin top, margin bottom, font size, font weight, text-transform
+
+$headings: (
+    ".page-heading": (3, 1, 2, 3, 100, none), 
+    ".section-heading": (1.5, 2, 1, 2, 200, none), 
+    ".sub-section-heading": (1.5, 1, 0, 1, 200, none), 
+    ".sub-heading": (1, -1.5, 0, 0, 500, uppercase), 
+    ".body": (1, 1, 0, 0, 400, none), 
+    ".figure-caption": (1, 1, 0, -1, 500, none)
+)

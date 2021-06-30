@@ -1,0 +1,14 @@
+@use 'fixed-aspect-ratio-box'
+@use 'spacing'
+
+.card
+    box-shadow: 2px 2px 10px 0px lightgray
+    border-radius: spacing.$space-s
+
+.card__picture
+    width: 100%
+    // min-height: 128px
+    border-radius: spacing.$space-s spacing.$space-s 0 0
+
+.card__text-content
+    padding: spacing.$space-inset-default
